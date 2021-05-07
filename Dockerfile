@@ -3,7 +3,9 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     sudo \
     wget \
-    vim
+    vim \
+    libx11-6 \
+    libx11-dev
 
 # install anaconda3
 WORKDIR /opt
@@ -16,9 +18,11 @@ RUN wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh && 
 ENV PATH=/opt/anaconda3/bin:$PATH
 
 # update pip
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip && pip install \
+    mglearn
 
 WORKDIR /
+RUN mkdir /work
 
 # execute jupyterlab as default command
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--LabApp.token=''"]
