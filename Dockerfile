@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     vim \
     libx11-6 \
-    libx11-dev
+    libx11-dev \
+    graphviz
 
 # install anaconda3
 WORKDIR /opt
@@ -19,7 +20,8 @@ ENV PATH=/opt/anaconda3/bin:$PATH
 
 # update pip
 RUN pip install --upgrade pip && pip install \
-    mglearn
+    mglearn \
+    graphviz
 
 WORKDIR /
 RUN mkdir /work
