@@ -27,11 +27,6 @@ RUN pip install --upgrade pip && pip install \
     lightgbm \
     optuna
 
-# add dark theme
-RUN mkdir -p /home/jovyan/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
-RUN echo '{"theme":"JupyterLab Dark"}' > \
-  /home/jovyan/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
-
 WORKDIR /
 RUN mkdir /work
 WORKDIR /work
