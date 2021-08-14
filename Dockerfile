@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 # update and install
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -25,7 +25,10 @@ RUN pip install --upgrade pip && pip install \
     pydotplus \
     xgboost \
     lightgbm \
-    optuna
+    optuna \
+    pandas_profiling \
+    tqdm \
+    imblearn
 
 WORKDIR /
 RUN mkdir /work
