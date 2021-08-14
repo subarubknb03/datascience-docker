@@ -1,7 +1,11 @@
 version: '3'
 services:
     web:
-      image: subarud0c3/jupyter-data-science2
+    # intel
+      # build: .
+    # arm
+      image: image-name
+
       container_name: my-jupyter-lab
       ports:
         - '8888:8888'
