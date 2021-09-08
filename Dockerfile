@@ -1,12 +1,12 @@
 FROM ubuntu:20.04
 # update and install
 RUN apt-get update && apt-get install -y \
-    sudo \
-    wget \
-    vim \
+    graphviz \
     libx11-6 \
     libx11-dev \
-    graphviz
+    sudo \
+    vim \
+    wget
 
 # install anaconda3
 WORKDIR /opt
@@ -21,14 +21,15 @@ ENV PATH=/opt/anaconda3/bin:$PATH
 # update pip
 RUN pip install --upgrade pip && pip install \
     graphviz \
+    imblearn \
     japanize_matplotlib \
-    pydotplus \
-    xgboost \
     lightgbm \
-    optuna \
+    mojimoji \
     pandas_profiling \
+    pydotplus \
+    optuna \
     tqdm \
-    imblearn
+    xgboost
 
 WORKDIR /
 RUN mkdir /work
